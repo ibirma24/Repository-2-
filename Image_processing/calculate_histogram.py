@@ -18,6 +18,9 @@ def calculate_histogram(img, bins):
     if img is None:
         raise ValueError("Input image is None")
     
+    if bins <= 0:
+        raise ValueError("Number of bins must be positive")
+    
     # Convert to grayscale if color image using cv2
     if len(img.shape) > 2:
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
