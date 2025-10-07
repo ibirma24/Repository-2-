@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from calculate_gradient import calculate_gradient_extended
+from calculate_gradient import calculate_gradient
 
 
 def directional_edge_detector(img, direction_range):
@@ -26,7 +26,7 @@ def directional_edge_detector(img, direction_range):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
     # Use calculate_gradient() to obtain the gradient direction map
-    _, grad_angle = calculate_gradient_extended(img)
+    _, grad_angle = calculate_gradient(img)
     
     # Convert angles from radians to degrees and normalize to [0, 180] range
     # Using 0-180 range because edge direction is independent of gradient sign

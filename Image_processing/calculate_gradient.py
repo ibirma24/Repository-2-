@@ -21,14 +21,15 @@ def apply_convolution(image, kernel):
 
 def calculate_gradient(img):
     """
-    Calculate gradient magnitude using apply_convolution from Project 1 to apply
-    the Sobel Sx and Sy filters, then compute the gradient magnitude.
+    Calculate gradient magnitude and direction using apply_convolution from Project 1 to apply
+    the Sobel Sx and Sy filters, then compute the gradient magnitude and angle.
     
     Parameters:
     img: input grayscale image (numpy array)
     
     Returns:
     grad_magnitude: gradient magnitude image
+    grad_angle: gradient direction/angle image (in radians)
     """
     if img is None:
         raise ValueError("Input image is None")
@@ -48,13 +49,16 @@ def calculate_gradient(img):
     # Compute gradient magnitude using numpy
     grad_magnitude = np.sqrt(grad_x**2 + grad_y**2)
     
+    # Calculate gradient direction/angle using numpy arctan2
+    grad_angle = np.arctan2(grad_y, grad_x)
+    
     # Normalize magnitude to [0, 255] range
     if grad_magnitude.max() > 0:
         grad_magnitude = (grad_magnitude / grad_magnitude.max() * 255).astype(np.uint8)
     else:
         grad_magnitude = grad_magnitude.astype(np.uint8)
     
-    return grad_magnitude
+    return grad_magnitude, grad_angle
 
 
 def calculate_gradient_extended(img):
@@ -161,9 +165,9 @@ def analyze_median_filter_effect():
     
     # Calculate gradients for all three images
     print("4. Computing gradient magnitudes...")
-    grad_original = calculate_gradient(test_img)
-    grad_noisy = calculate_gradient(noisy_img)
-    grad_filtered = calculate_gradient(filtered_img)
+    grad_original, _ = calculate_gradient(test_img)
+    grad_noisy, _ = calculate_gradient(noisy_img)
+    grad_filtered, _ = calculate_gradient(filtered_img)
     
     # Calculate statistics
     def calc_stats(grad_img, name):
