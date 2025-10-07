@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-"""
-Exercise 2 Test Function: Effect of Median Filtering on Gradient Magnitude
-
-This test function analyzes how median filtering affects gradient magnitude calculation
-on images corrupted by salt-and-pepper noise using the brown eggs image.
-
-Usage:
-    python test_exercise2.py
-
-Author: Image Processing Course - Exercise 2
-Date: October 2025
-"""
 
 import numpy as np
 import cv2

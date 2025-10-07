@@ -1,13 +1,3 @@
-"""
-Edge Detection Comparison Script
-Applies three different edge detection methods to XboxSeriesX.jpg:
-1. Sobel edge detection (gradient magnitude-based)
-2. Directional edge detection (45-degree edges)
-3. Canny edge detection (OpenCV implementation)
-
-Each method is displayed as an individual image for comparison.
-"""
-
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt

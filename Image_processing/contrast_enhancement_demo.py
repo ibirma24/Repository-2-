@@ -1,17 +1,3 @@
-#!/usr/bin/env python3
-"""
-Contrast Enhancement Comparison Tool
-
-This script applies both contrast stretching and histogram equalization to a low-contrast
-image and creates a comprehensive visual comparison with side-by-side histograms.
-
-Usage:
-    python contrast_enhancement_demo.py
-
-Author: Image Processing Course
-Date: October 2025
-"""
-
 import numpy as np
 import cv2
 import matplotlib
